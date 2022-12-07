@@ -95,12 +95,28 @@ const resolvers = {
       
             return { token, user };
         },
-        addProject: async (parent, args) => {
+        updateProject: async (parent, {_id}, context)  => {
+          if (context.user) {
+            return await Project.findByIdAndUpdate(
+              _id, 
+              {$set:{
+                open: false,
+                developer: context.user
+              }}, 
+              {new:true});
+        }
+        },
+        deleteProject: async (parent, {_id})  => {
+          return await Project.findByIdAndDelete(id)
+        },
+        addProject: async (parent, args, context) => {
           const project = await Project.create(args);
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { createdProjects: project._id } }
+          );
           return project;
         }
-        //Need mutations for update open/claimed projects for User and
-        //"developer" for project?
     }
 }
 

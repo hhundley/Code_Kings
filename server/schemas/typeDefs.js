@@ -22,7 +22,6 @@ const typeDefs = gql`
         price: Float
         owner: User
         developers: User
-
     }
 
     type Auth {
@@ -55,13 +54,18 @@ const typeDefs = gql`
             email: String!
             password: String!
         ): Auth
+        updateProject(
+            _id: ID!
+        ): Auth
+        deleteProject(
+            _id: ID!
+        ): Auth
         addProject(
-            name: String
-            description: String
-            price: String
-        ): User
+            name: String!,
+            description: String!,
+            price: Float!
+        ): Project
     }
 `;
-//add mutations once resolvers are finished
 
 module.exports = typeDefs;
