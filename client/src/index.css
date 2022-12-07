@@ -40,6 +40,12 @@ body {
   height: 50px;
   background-color: aquamarine;
   color: black;
+  font-size: large;
+}
+
+.create-new-proj:hover{
+  font-size:x-large;
+  
 }
 
 .ant-btn-primary.create-new-proj:hover,
