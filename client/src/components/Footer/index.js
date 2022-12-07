@@ -48,7 +48,7 @@ function Footer() {
       </div>
     </div>
     <footer className="foot">
-      <p>Copyright © 2022 Code Kings - All rights Reserved</p>
+      <p>Copyright © 2022 Code Kings</p>
     </footer>
     </div>
   )

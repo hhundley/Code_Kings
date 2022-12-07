@@ -1,11 +1,13 @@
 import React from 'react';
+import { Layout, Button } from "antd";
 import { Link } from "react-router-dom";
 import Navigation from '../Navigation';
 import logo from '../../assets/logo-1-1.svg';
+import Auth from '../../utils/auth';
+import { redirect } from "react-router-dom";
 import './style.css';
 
 const Header = () => {
-
 
   return (
     <header>

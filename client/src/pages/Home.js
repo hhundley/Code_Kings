@@ -1,11 +1,10 @@
 import React from "react";
 import { Layout, Button } from "antd";
 import Auth from '../utils/auth';
-import ProfileIcon from "../components/ProfileIcon";
 import ProjectCard from "../components/ProjectCard";
 import { redirect } from "react-router-dom";
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 
 function Home() {
@@ -18,21 +17,13 @@ function Home() {
   }
   return (
     <Layout className="mainLayout">
-      <Sider
-        breakpoint="lg"
-        style={{backgroundColor:'transparent'}}
-        collapsedWidth="0"
-      >
-        <div className="icon-projPage">
           <Button 
             className="create-new-proj" 
             type="primary" 
             onClick={handleProjectButton}
-            style={{backgroundColor:'navy',color:'white'}}>
-            Create A Project
+            style={{backgroundColor:'navy',color:'white',width:'60px', height:'60px', borderRadius:'50%',display:'block',marginLeft:'auto',marginRight:'auto'}}>
+            +
           </Button>
-        </div>
-      </Sider>
       <Content>
         <div className="container-list">
           <ProjectCard />
