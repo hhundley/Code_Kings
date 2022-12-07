@@ -9,10 +9,10 @@ const { Content } = Layout;
 
 function Home() {
   const handleProjectButton = () => {
-    Auth.loggedIn ? (
-      window.location.replace('/newproject')
+    Auth.loggedIn() ? (
+      window.location.assign('/newproject')
     ) : (
-      window.location.replace('/login')
+      window.location.assign('/login')
     )
   }
   return (
