@@ -1,5 +1,4 @@
 import React from 'react';
-import { Layout, Button } from "antd";
 import { Link } from "react-router-dom";
 import Navigation from '../Navigation';
 import logo from '../../assets/logo-1-1.svg';
