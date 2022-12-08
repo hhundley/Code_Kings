@@ -62,7 +62,7 @@ const Profile = () => {
                   ))}
       </Panel>
       <Panel header="Developing Projects" key="2">
-      {me.createdProjects.map((project) => (
+      {me.developingProjects.map((project) => (
                      <Link to={`/projects/${project._id}`} key={project._id}>
                      <div  className="cards">
                      <Card hoverable="true" className="project-card">
