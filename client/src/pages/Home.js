@@ -2,7 +2,6 @@ import React from "react";
 import { Layout, Button } from "antd";
 import Auth from '../utils/auth';
 import ProjectCard from "../components/ProjectCard";
-import { redirect } from "react-router-dom";
 
 const { Content } = Layout;
 
