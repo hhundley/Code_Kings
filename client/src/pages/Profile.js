@@ -3,21 +3,23 @@ import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "../index.css";
 import ProfileIcon from "../components/ProfileIcon";
-import ProjectCard from "../components/ProjectCard";
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { Card} from 'antd';
+import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   ProjectOutlined,
-  HomeOutlined,
+  PushpinFilled
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Collapse } from "antd";
+const { Meta } = Card;
+const { Panel } = Collapse;
 
-const { Header, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const Profile = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const onChange = (key) => {
+    console.log(key);
+  };
   const { _id: userParam } = useParams();
   const { data } = useQuery(QUERY_ME, {
     variables: { _id: userParam },
@@ -38,76 +40,44 @@ const Profile = () => {
   }
 
   return (
-    <Layout>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <HomeOutlined />,
-              label: "Home",
-            },
-            {
-              key: "2",
-              icon: <ProjectOutlined />,
-              label: <Link to="/newproject">Create a Project</Link>,
-            },
-          ]}
-        />
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          <div className="wrapper">
-            <div className="content-profile">
-              <div style={{textAlign:"center",marginBottom:'25px',fontWeight:"bolder", fontSize:"24px"}}>
+    <div>
+    <div style={{textAlign:"center",marginBottom:'25px',fontWeight:"bolder", fontSize:"24px",fontFamily:'Arial'}}>
                 <ProfileIcon />
                 {me.firstName} {me.lastName}
-              </div>
-              <div>
-                <div className="section half">
-                  <h2>Created Projects</h2>
-                  <hr style={{ border: "1px solid grey" }} />
-                  {me.createdProjects.map((project) => (
-                    project.name
+    </div>
+
+    <Collapse defaultActiveKey={['1']} onChange={onChange} style={{margin:'25px'}}>
+      <Panel header="Created Projects" key="1">
+      {me.createdProjects.map((project) => (
+                     <Link to={`/projects/${project._id}`} key={project._id}>
+                     <div  className="cards">
+                     <Card hoverable="true" className="project-card">
+                       <PushpinFilled style={{color:'red',fontSize:'24px'}} />
+           
+                       <Meta title={project.name}/>
+           
+                         <div className="price" style={{color:'grey'}}>${project.price} Bounty </div>
+                     </Card>
+                       </div> </Link>
                   ))}
-                </div>
-                <div className="section half">
-                  <h2>Developer Projects</h2>
-                  <hr style={{ border: "1px solid grey" }} />
-                  <div className="break">
-                  {me.developingProjects.map((project) => (
-                    project.name
+      </Panel>
+      <Panel header="Developing Projects" key="2">
+      {me.createdProjects.map((project) => (
+                     <Link to={`/projects/${project._id}`} key={project._id}>
+                     <div  className="cards">
+                     <Card hoverable="true" className="project-card">
+                       <PushpinFilled style={{color:'red',fontSize:'24px'}} />
+           
+                       <Meta title={project.name}/>
+           
+                         <div className="price" style={{color:'grey'}}>${project.price} Bounty </div>
+                     </Card>
+                       </div> </Link>
                   ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Content>
-      </Layout>
-    </Layout>
+      </Panel>
+    </Collapse>
+    </div>
+
   );
 };
 

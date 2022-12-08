@@ -1,9 +1,6 @@
 import React from 'react';
-
 import { useQuery } from '@apollo/client';
-
 import CardList from '../CardList';
-
 import { QUERY_PROJECTS } from "../../utils/queries";
 
 const ProjectCard = () => {

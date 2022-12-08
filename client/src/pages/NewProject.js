@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
@@ -7,14 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 // import Auth from '../utils/auth';
 import { Button, Form, Input, InputNumber } from 'antd';
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
 
 
 const NewProject = () => { 
@@ -55,7 +46,7 @@ const onFinish = values => {
     navigate('/me');
 };
   return (
-    <Form {...layout} name="nest-messages" onFinish={onFinish}>
+    <Form name="nest-messages" onFinish={onFinish} layout='vertical' style={{marginLeft:'25px'}}>
       
       <Form.Item
         name='name'
@@ -67,23 +58,23 @@ const onFinish = values => {
           },
         ]}
       >
-        <Input size="large" placeholder='Enter title here'style={{ width: '70%'}}/>
+        <Input size="large" placeholder='Enter title here'style={{ width: '80%'}}/>
       </Form.Item>
       
       <Form.Item name='description' 
-      label="Project Description"
+      label="Description"
       rules={[
           {
               required: true,
               message: 'Please enter a description!',
           },
       ]}>
-        <Input.TextArea placeholder='Describe your project' autoSize={{ minRows: 5, maxRows: 20}} style={{ width: '70%'}}/>
+        <Input.TextArea placeholder='Describe your project' autoSize={{ minRows: 5, maxRows: 20}} style={{ width: '80%'}}/>
       </Form.Item>
 
       <Form.Item
         name='price'
-        label="Set your bounty"
+        label="Bounty"
         rules={[
           {
             required: true,
@@ -94,12 +85,7 @@ const onFinish = values => {
         <InputNumber prefix='$' />
       </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          ...layout.wrapperCol,
-          offset: 8,
-        }}
-      >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit Project
         </Button>

@@ -1,10 +1,9 @@
 import React from 'react';
 import "./style.css";
-import { Link,useNavigate} from 'react-router-dom';
-import { ArrowRightOutlined,PushpinFilled } from '@ant-design/icons';
-import { Avatar, Card, Typography} from 'antd';
+import { Link} from 'react-router-dom';
+import { PushpinFilled } from '@ant-design/icons';
+import { Card} from 'antd';
 const { Meta } = Card;
-const { Title } = Typography
 
 const CardList = ({
   projects
