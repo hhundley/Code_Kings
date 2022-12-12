@@ -52,7 +52,7 @@ const App = () => {
 
   return (
     <Layout>
-      <Sider        breakpoint="lg"
+      <Sider style={{backgroundColor:'white'}} breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
           console.log(broken);
@@ -86,7 +86,7 @@ const App = () => {
           >
           <div className='row-1'>
             <Card title={project.name} className='title-projCard'>
-
+            {project.description}
             </Card>
           </div>
           <div className='row-2'>
@@ -101,12 +101,7 @@ const App = () => {
               )}
             </Card>
           </div>
-          <div className='row-3'>
-            <Card title="Description" className='description-projCard'>
-              <p>{project.description}</p>
-            </Card>
-          </div>
-          <div className='row-4'>
+          <div className='row-1'>
             <Card 
               title="Resources" 
               className='resources-projCard' 
@@ -117,21 +112,9 @@ const App = () => {
               }>
               <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
             </Card>
-            <Card title="Details" className='details-projCard'>
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
-            </Card>
           </div>
         </Space>
       </Content>
-      <Sider         breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >Sider</Sider>
     </Layout>
   )
 };
