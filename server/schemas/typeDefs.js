@@ -20,8 +20,8 @@ const typeDefs = gql`
         description: String
         open: Boolean
         price: Float
-        owner: User
-        developers: User
+        owner: String
+        developers: String
     }
 
     type Auth {
@@ -63,7 +63,8 @@ const typeDefs = gql`
         addProject(
             name: String!,
             description: String!,
-            price: Float!
+            price: Float!,
+            owner: String!
         ): Project
     }
 `;

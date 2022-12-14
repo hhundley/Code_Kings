@@ -20,14 +20,8 @@ query getSingleProject($projectId: ID!) {
     description
     open
     price
-    owner {
-      firstName
-      lastName
-    }
-    developers {
-      firstName
-      lastName
-    }
+    owner
+    developers
   }
 }
 `;

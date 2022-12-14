@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 import { useNavigate } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 // import Auth from '../utils/auth';
 import { Button, Form, Input, InputNumber } from 'antd';
@@ -27,12 +28,12 @@ const NewProject = () => {
         try {
             const { data } = addProject({
                 variables: {
-                    ...values
+                    ...values,
+                    owner:Auth.getProfile().data.firstName,
                 },
             })
             // Auth.addProject(data.login.token);
             setData(data);
-            console.log(data);
         }
         catch (err) {
             setError(err);

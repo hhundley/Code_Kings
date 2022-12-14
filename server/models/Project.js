@@ -21,12 +21,12 @@ const projectSchema = new Schema({
     min: 0
   },
   owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    type: String,
+    trim: true,
   },
   developers: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    type: String,
+    trim: true,
   }
 });
 
