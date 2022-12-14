@@ -62,15 +62,12 @@ const App = () => {
         }}
       >
         <div className='icon-projPage'>
-          <Icon/>
-          <Card className='price-projCard' title='Price' size='small'>
-            <p>{project.price}</p>
+          {/* <Icon/> */}
+          <Card className='price-projCard' title='Bounty' size='small'>
+            <p>${project.price}</p>
           </Card>
           <Button className='claim-projCard' type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
-            Claim Project
-          </Button>
-          <Button className='delete-projCard' type="primary" loading={loadings[1]} onClick={() => enterLoading(1)} danger>
-            Delete Project
+            Pursue
           </Button>
         </div>
       </Sider>
@@ -93,11 +90,11 @@ const App = () => {
             <Card title="Owner" className='owner-projCard'>
               <p>{project.owner}</p>
             </Card>
-            <Card title="Developers" className='developers-projCard'>
+            <Card title="Pursuers" className='developers-projCard'>
               {project.developers ? (
                 <p>{project.developers.firstName} {project.developers.lastName}</p>
               ) : (
-                <p>This project has not been claimed by any developers</p>
+                <p>No one is currently pursuing this project</p>
               )}
             </Card>
           </div>

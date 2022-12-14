@@ -24,8 +24,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 16px;
   padding: 16px;
+  padding-top: 12px;
 }
 
 .price-projCard,
