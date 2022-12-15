@@ -61,7 +61,7 @@ const Profile = () => {
                        </div> </Link>
                   ))}
       </Panel>
-      <Panel header="Developing Projects" key="2">
+      <Panel header="In Pursuit" key="2">
       {me.developingProjects.map((project) => (
                      <Link to={`/projects/${project._id}`} key={project._id}>
                      <div  className="cards">
