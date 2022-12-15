@@ -33,7 +33,7 @@ const tailFormItemLayout = {
 
 
 const Signup = () => { 
-    const [addUser, {loading}] = useMutation(ADD_USER, {errorPolicy: 'all'});
+    const [addUser] = useMutation(ADD_USER, {errorPolicy: 'all'});
     const [data, setData] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -52,9 +52,6 @@ const Signup = () => {
             setError(err);
         }
     }
-if (loading) return <p>Loading...</p>;
-if (error) return <p>Error :</p>;
-
 const onFinish = values => {
     handleFormSubmit(values);
     navigate('/login');
