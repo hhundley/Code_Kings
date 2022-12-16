@@ -18,6 +18,7 @@ const typeDefs = gql`
         _id: ID
         name: String
         description: String
+        contact: String
         open: Boolean
         price: Float
         owner: String
@@ -63,6 +64,7 @@ const typeDefs = gql`
         addProject(
             name: String!,
             description: String!,
+            contact: String!
             price: Float!,
             owner: String!
         ): Project

@@ -6,6 +6,7 @@ query getProjects {
     _id
     name
     description
+    contact
     open
     price
   }
@@ -18,6 +19,7 @@ query getSingleProject($projectId: ID!) {
     _id
     name
     description
+    contact
     open
     price
     owner

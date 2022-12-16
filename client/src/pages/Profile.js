@@ -47,7 +47,7 @@ const Profile = () => {
     </div>
 
     <Collapse defaultActiveKey={['1']} onChange={onChange} style={{margin:'25px'}}>
-      <Panel header="Created Projects" key="1">
+      <Panel header="Open Bounties" key="1">
       {me.createdProjects.map((project) => (
                      <Link to={`/projects/${project._id}`} key={project._id}>
                      <div  className="cards">
@@ -61,7 +61,7 @@ const Profile = () => {
                        </div> </Link>
                   ))}
       </Panel>
-      <Panel header="In Pursuit" key="2">
+      <Panel header="Closed Bounties" key="2">
       {me.developingProjects.map((project) => (
                      <Link to={`/projects/${project._id}`} key={project._id}>
                      <div  className="cards">

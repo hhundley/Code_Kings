@@ -11,6 +11,10 @@ const projectSchema = new Schema({
     type: String,
     required: true
   },
+  contact: {
+    type:String,
+    required: true
+  },
   open: {
     type: Boolean,
     default: true

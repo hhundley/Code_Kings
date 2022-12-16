@@ -52,25 +52,6 @@ const App = () => {
 
   return (
     <Layout>
-      <Sider style={{backgroundColor:'white'}} breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div className='icon-projPage'>
-          {/* <Icon/> */}
-          <Card className='price-projCard' title='Bounty' size='small'>
-            <p>${project.price}</p>
-          </Card>
-          <Button className='claim-projCard' type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
-            Pursue
-          </Button>
-        </div>
-      </Sider>
       <Content>
         <Space
           direction="vertical"
@@ -87,15 +68,16 @@ const App = () => {
             </Card>
           </div>
           <div className='row-2'>
-            <Card title="Owner" className='owner-projCard'>
-              <p>{project.owner}</p>
+            <Card title="Owner/Contact" className='owner-projCard'>
+              <p>{project.owner}<br></br>{project.contact}</p>
             </Card>
-            <Card title="Pursuers" className='developers-projCard'>
-              {project.developers ? (
+            <Card title="Bounty" className='developers-projCard'>
+              {/* {project.developers ? (
                 <p>{project.developers.firstName} {project.developers.lastName}</p>
               ) : (
                 <p>No one is currently pursuing this project</p>
-              )}
+              )} */}
+              <p>${project.price}</p>
             </Card>
           </div>
           <div className='row-1'>

@@ -59,7 +59,7 @@ const onFinish = values => {
           },
         ]}
       >
-        <Input size="large" placeholder='Enter title here'style={{ width: '80%'}}/>
+        <Input size="large" placeholder='Enter title'style={{ width: '80%'}}/>
       </Form.Item>
       
       <Form.Item name='description' 
@@ -71,6 +71,19 @@ const onFinish = values => {
           },
       ]}>
         <Input.TextArea placeholder='Describe your project' autoSize={{ minRows: 5, maxRows: 20}} style={{ width: '80%'}}/>
+      </Form.Item>
+
+      <Form.Item
+        name='contact'
+        label="Contact Info (Note: This will be visible to all users and allows others to contact you in regard to project related matters)"
+        rules={[
+          {
+            required: true,
+            message: 'Please enter contact info!',
+          },
+        ]}
+      >
+        <Input size="large" placeholder='Enter contact info'style={{ width: '80%'}}/>
       </Form.Item>
 
       <Form.Item
