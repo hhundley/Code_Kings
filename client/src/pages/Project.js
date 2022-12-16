@@ -67,11 +67,13 @@ const App = () => {
             {project.description}
             </Card>
           </div>
-          <div className='row-2'>
+          <div className='row-1'>
             <Card title="Owner/Contact" className='owner-projCard'>
               <p>{project.owner}<br></br>{project.contact}</p>
             </Card>
-            <Card title="Bounty" className='developers-projCard'>
+          </div>
+          <div className='row-1'>
+          <Card title="Bounty" className='developers-projCard'>
               {/* {project.developers ? (
                 <p>{project.developers.firstName} {project.developers.lastName}</p>
               ) : (
